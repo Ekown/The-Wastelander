@@ -37,7 +37,7 @@ public class InteractionManager : MonoBehaviour {
 
                 waitingKey = true;
 
-                coroutine = WaitForKey();
+                coroutine = WaitForKey(collider);
                 StartCoroutine(coroutine);
                 
             }
@@ -59,7 +59,7 @@ public class InteractionManager : MonoBehaviour {
         }
     }
 
-    private IEnumerator WaitForKey()
+    private IEnumerator WaitForKey(Collider2D collider)
     {
         // The coroutine will only work if it is waiting for a key
         if(waitingKey)
@@ -75,14 +75,13 @@ public class InteractionManager : MonoBehaviour {
                     yield break;
             }
 
-            // Activate the panel and text within
-            panel.gameObject.SetActive(true); 
+            
 
             yield return StartCoroutine(PanelPause());
             
             yield return null;
 
-            yield return StartCoroutine(WaitForKey());
+            yield return StartCoroutine(WaitForKey(collider));
             
         }
         
@@ -112,6 +111,19 @@ public class InteractionManager : MonoBehaviour {
         panel.gameObject.SetActive(false);
 
         Debug.Log("Un-Pause");
+    }
+
+    private void UpdatePanelText(Collider2D collider)
+    {
+        string panelText;
+
+        // Activate the panel and text within
+        panel.gameObject.SetActive(true);
+
+        panelText = collider.gameObject.GetComponent<PanelContainer>().panel.panelDescription;
+
+        //Update the text of the panel
+        //panel.gameObject.GetComponentInChildren<TextMeshProUGUI>().text
     }
 
 
