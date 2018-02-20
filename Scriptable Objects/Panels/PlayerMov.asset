@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Name: PlayerMov
   m_EditorClassIdentifier: 
   panelName: Instruction-Sign-PlayerMov
-  panelDescription: '<walk left button> - Walk Left
+  panelDescription: 'MOVEMENT CONTROLS
+
+
+    <walk left button> - Walk Left
 
     <walk right button> - Walk Right
 

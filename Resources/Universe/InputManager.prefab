@@ -35,14 +35,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4064281973000808}
-  - component: {fileID: 114817598391714304}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4064281973000808
 Transform:
   m_ObjectHideFlags: 1
@@ -211,24 +210,6 @@ MonoBehaviour:
       joystick: 0
     isExpanded: 0
   _playerOneDefault: Default
-  _playerTwoDefault: 
-  _playerThreeDefault: 
-  _playerFourDefault: 
-  _dontDestroyOnLoad: 0
-  _ignoreTimescale: 0
---- !u!114 &114817598391714304
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1085465815100900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb91bdba6520fd248bbc41b14d02e9a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _inputConfigurations: []
-  _playerOneDefault: 
   _playerTwoDefault: 
   _playerThreeDefault: 
   _playerFourDefault: 
