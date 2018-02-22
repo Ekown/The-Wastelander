@@ -9,15 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 86101a9cf35dcd34181f5f2701084253, type: 3}
-  m_Name: PlayerMov
+  m_Name: A2 - GameMech
   m_EditorClassIdentifier: 
-  panelName: Instruction-Sign-PlayerMov
-  panelDescription: 'MOVEMENT CONTROLS
+  panelName: Instruction-Sign-GameMech
+  panelDescription: 'GENERAL CONTROLS
 
 
-    <walk left button> - Walk Left
+    <interact> - Interact
 
-    <walk right button> - Walk Right
+    <pause> - Pause
 
-
-'
+    <notebook> - Open Notebook'

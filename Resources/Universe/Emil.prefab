@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 114168350725388418}
   m_Layer: 0
   m_Name: Emil
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -501,7 +501,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4942389961319734}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 24.965002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.513}
 --- !u!4 &4006294884864996
 Transform:
   m_ObjectHideFlags: 1
@@ -537,7 +537,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546766692740956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.54, y: -17.892113, z: 5}
+  m_LocalPosition: {x: -20.54, y: -17.9, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4224505803900624}
@@ -565,7 +565,7 @@ Transform:
   - {fileID: 4234225583309476}
   m_Father: {fileID: 4686129706010794}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 172.636}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 175.99101}
 --- !u!4 &4206307552961592
 Transform:
   m_ObjectHideFlags: 1
@@ -578,7 +578,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4491198833294524}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 12.748}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 19.705002}
 --- !u!4 &4224505803900624
 Transform:
   m_ObjectHideFlags: 1
@@ -605,7 +605,7 @@ Transform:
   - {fileID: 4444726911155042}
   m_Father: {fileID: 4101119039133470}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1069.873}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1062.777}
 --- !u!4 &4275854697768008
 Transform:
   m_ObjectHideFlags: 1
@@ -740,7 +740,7 @@ Transform:
   - {fileID: 4756536761572214}
   m_Father: {fileID: 4686129706010794}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -185.243}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -181.17699}
 --- !u!4 &4491198833294524
 Transform:
   m_ObjectHideFlags: 1
@@ -754,7 +754,7 @@ Transform:
   - {fileID: 4206307552961592}
   m_Father: {fileID: 4781528241490298}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -181.002}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -184.63899}
 --- !u!4 &4501608340794424
 Transform:
   m_ObjectHideFlags: 1
@@ -811,7 +811,7 @@ Transform:
   - {fileID: 4415448710288472}
   m_Father: {fileID: 4490732208003228}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.973001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.779001}
 --- !u!4 &4781528241490298
 Transform:
   m_ObjectHideFlags: 1
@@ -893,7 +893,7 @@ Transform:
   - {fileID: 4006232073740440}
   m_Father: {fileID: 4781528241490298}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -545.65295}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -542.74}
 --- !u!20 &20953248702296812
 Camera:
   m_ObjectHideFlags: 1
@@ -1083,7 +1083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.26091012
+  m_Length: 0.26090875
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4781528241490298}
   m_AttachedIK: {fileID: 0}
@@ -1099,6 +1099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  panelImage: {fileID: 0}
   interactText: {fileID: 0}
   panelPopupAnim: {fileID: 0}
 --- !u!114 &114170068492705466
@@ -1113,7 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.85554725
+  m_Length: 0.85554796
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4234225583309476}
   m_AttachedIK: {fileID: 114547883798508668}
@@ -1247,7 +1248,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: 0.39150882, w: 0.92017436}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: -20.805084, y: -18.11423, z: 5}
+    targetPosition: {x: -20.805084, y: -18.122116, z: 5}
     flip: 0
 --- !u!114 &114309518512777450
 MonoBehaviour:
@@ -1304,7 +1305,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: -0.1972112, w: 0.98036104}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: -20.320002, y: -19.576113, z: 5}
+    targetPosition: {x: -20.320002, y: -19.584, z: 5}
     flip: 1
 --- !u!114 &114423288502680978
 MonoBehaviour:
@@ -1318,7 +1319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.13999999
+  m_Length: 0.14000046
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4366687808801328}
   m_AttachedIK: {fileID: 0}
@@ -1334,7 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.72129226
+  m_Length: 0.7212928
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4006232073740440}
   m_AttachedIK: {fileID: 114293707009309868}
@@ -1379,7 +1380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.7616425
+  m_Length: 0.7616426
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4415448710288472}
   m_AttachedIK: {fileID: 114420308844425152}
@@ -1418,7 +1419,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: -0.044121332, w: 0.9990262}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: -20.79, y: -19.712112, z: 5}
+    targetPosition: {x: -20.79, y: -19.72, z: 5}
     flip: 1
 --- !u!114 &114581673832764810
 MonoBehaviour:
@@ -1432,7 +1433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.77560806
+  m_Length: 0.77560854
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4444726911155042}
   m_AttachedIK: {fileID: 114547883798508668}
@@ -1469,7 +1470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.4000013
+  m_Length: 1.4000019
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4501608340794424}
   m_AttachedIK: {fileID: 0}
@@ -1530,7 +1531,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: 0.4338979, w: 0.9009621}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: -20.070002, y: -18.112112, z: 5}
+    targetPosition: {x: -20.070002, y: -18.119999, z: 5}
     flip: 0
 --- !u!114 &114698033697999252
 MonoBehaviour:
@@ -1544,7 +1545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.66000056
+  m_Length: 0.6599994
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4206307552961592}
   m_AttachedIK: {fileID: 114684591638341704}
@@ -1560,7 +1561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.70000005
+  m_Length: 0.6999999
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4756536761572214}
   m_AttachedIK: {fileID: 114420308844425152}

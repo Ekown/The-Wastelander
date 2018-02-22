@@ -4,11 +4,13 @@ using UnityEngine;
 using TMPro;
 using TeamUtility.IO;
 using System;
+using UnityEngine.UI;
 
 public class InteractionManager : MonoBehaviour {
 
     Event keyEvent;
     public GameObject panel;
+    public RawImage panelImage;
     public TextMeshProUGUI interactText;
 
     // Bool variables
@@ -24,6 +26,8 @@ public class InteractionManager : MonoBehaviour {
     public Animator panelPopupAnim;
     int popupHash = Animator.StringToHash("isPopup");
     int popoutHash = Animator.StringToHash("isPopOut");
+    int showPanelImage = Animator.StringToHash("showImage");
+    int hidePanelImage = Animator.StringToHash("hideImage");
 
     // Use this for initialization
     void Start () {
@@ -48,12 +52,12 @@ public class InteractionManager : MonoBehaviour {
         // If the collider is an interactable
         if(collider.gameObject.CompareTag("Interactable"))
         {
-            Debug.Log("Collided with an interactable");
+            //if(collider.gameObject.name.Contains("PlayerMov"))
+            //{
+            
 
-            if(collider.gameObject.name.Contains("PlayerMov"))
-            {
                 // Enables and dynamically changes the interact text
-                if (interactText != null && isIntro == false)
+                if (interactText != null)
                 {
                     // If the interact key is set to NULL
                     if(interactKey == null)
@@ -74,10 +78,12 @@ public class InteractionManager : MonoBehaviour {
 
                     itemCollided = collider;
 
-                    StartCoroutine(coroutine);
+                Debug.Log("Collided with " + itemCollided.gameObject.name);
+
+                StartCoroutine(coroutine);
                 }
       
-            }
+            //}
         }
     }
 
@@ -89,11 +95,17 @@ public class InteractionManager : MonoBehaviour {
 
         if (waitingKey == true)
         {
-            //itemCollided = null;
+            itemCollided = null;
             updatedText = false;
 
             StopCoroutine(coroutine);
             waitingKey = false;
+
+            if (panelImage.gameObject.activeSelf == true)
+            {
+                panelImage.gameObject.GetComponent<RawImage>().texture = null;
+                panelImage.gameObject.SetActive(true);
+            }
 
             Debug.Log("Stopped coroutines");
         }
@@ -104,8 +116,8 @@ public class InteractionManager : MonoBehaviour {
         // The coroutine will only work if it is waiting for a key
         if (waitingKey)
         {
-            if (isIntro == false)
-            {
+            //if (isIntro == false)
+            //{
                 interactText.gameObject.GetComponent<TextMeshProUGUI>().text = "Press " + interactKey + " to interact";
 
                 Debug.Log("Waiting..");
@@ -118,20 +130,29 @@ public class InteractionManager : MonoBehaviour {
                     else
                         yield break;
                 }
+            //}
+            //else
+            //{
+                //interactText.gameObject.GetComponent<TextMeshProUGUI>().text = "";
+
+                //StartCoroutine(Wait());
+            //}
+
+            // Activate the panel and text within
+            panel.gameObject.SetActive(true);
+            
+            if(itemCollided.gameObject.name == "Instruction-Sign-SaveLoad")
+            {
+                panelPopupAnim.SetTrigger(showPanelImage);
             }
             else
             {
-                interactText.gameObject.GetComponent<TextMeshProUGUI>().text = "";
-
-                //StartCoroutine(Wait());
+                panelPopupAnim.SetTrigger(popupHash);
             }
-
-            // Activate the panel and text within
-            panel.gameObject.SetActive(true);         
 
             // Update the panel text
             UpdatePanelText();
-
+            
             yield return StartCoroutine(PanelPause());
             
             yield return null;
@@ -161,7 +182,18 @@ public class InteractionManager : MonoBehaviour {
         Time.timeScale = 1f;
 
         // Deactivate the panel and text within
-        panelPopupAnim.SetTrigger(popoutHash);
+        //panelPopupAnim.SetTrigger(popoutHash);
+
+        //panel.gameObject.GetComponent<TextMeshProUGUI>().text = "";
+
+        if (itemCollided.gameObject.name == "Instruction-Sign-SaveLoad")
+        {
+            panelPopupAnim.SetTrigger(hidePanelImage);
+        }
+        else
+        {
+            panelPopupAnim.SetTrigger(popoutHash);
+        }
 
         yield return new WaitForSeconds(1f);
 
@@ -179,6 +211,8 @@ public class InteractionManager : MonoBehaviour {
             // Get the panel description from the interactable            
             panelText = itemCollided.gameObject.GetComponent<PanelContainer>().panel.panelDescription;
 
+            Debug.Log("Item has description of :" + panelText);
+
             // If panel description has '<walk left button>' keyword
             if (panelText.IndexOf("<walk left button>") != -1)
             {
@@ -195,24 +229,42 @@ public class InteractionManager : MonoBehaviour {
                 //    }
                 //}
 
-
-          
-
                 string walkLeftButton = InputManager.PlayerOneConfiguration.axes[0].positive.ToString();
-                string walkRightButton = InputManager.GetAxisConfiguration("Default", "Horizontal").positive.ToString();
+                string walkRightButton = InputManager.PlayerOneConfiguration.axes[0].negative.ToString();
 
 
 
                 panelText = panelText.Replace("<walk left button>", "[" + walkLeftButton + "]");
                 panelText = panelText.Replace("<walk right button>", "[" + walkRightButton + "]");
             }
+            else if(panelText.IndexOf("<interact>") != -1)
+            {
+                //Debug.Log("There is interact in the description");
+
+                string interactButton = InputManager.PlayerOneConfiguration.axes[1].positive.ToString();
+                string pauseButton = InputManager.PlayerOneConfiguration.axes[2].positive.ToString();
+                string notebookButton = InputManager.PlayerOneConfiguration.axes[3].positive.ToString();
+
+                panelText = panelText.Replace("<interact>", "[" + interactButton + "]");
+                panelText = panelText.Replace("<pause>", "[" + pauseButton + "]");
+                panelText = panelText.Replace("<notebook>", "[" + notebookButton + "]");
+            }
+            else if(panelText.IndexOf("autosave feature") != -1)
+            {
+                ActivatePanelImage();
+            }
 
             // Replace the PanelText's text component with the Panel Description of the Interactable
             try
-            {
-                Debug.Log("Paanel text changed");
+            {            
+                // If the panel's text component is not empty or null
+                //if(! String.IsNullOrEmpty(panel.gameObject.GetComponentInChildren<TextMeshProUGUI>().text))
+                //{
+                //    Debug.Log("Panel text changed into: " + panelText);
+                //    panel.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "";
+                //}
 
-                panel.gameObject.GetComponentInChildren<TextMeshProUGUI>().text = panelText;
+                panel.gameObject.GetComponentInChildren<TextMeshProUGUI>(true).text = panelText;
             }
             catch(NullReferenceException e)
             {
@@ -245,8 +297,20 @@ public class InteractionManager : MonoBehaviour {
         }
     }
 
-    private IEnumerator Wait()
+    private IEnumerator Wait(int seconds)
     {
-        yield return new WaitForSeconds(5f);
+        Debug.Log("Waiting for " + seconds);
+        yield return new WaitForSeconds(10f);
+    }
+
+    private void ActivatePanelImage()
+    {
+        Texture2D saveTexture = Resources.Load("InitialSprites/SaveIcon/compact-disc") as Texture2D;
+
+        Debug.Log(saveTexture);
+
+        //panelImage.gameObject.SetActive(true);
+
+        panelImage.gameObject.GetComponent<RawImage>().texture = saveTexture;
     }
 }

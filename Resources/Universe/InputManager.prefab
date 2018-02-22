@@ -124,20 +124,6 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    - name: Inventory
-      description: Inventory
-      positive: 122
-      negative: 0
-      altPositive: 0
-      altNegative: 0
-      deadZone: 0
-      gravity: 0
-      sensitivity: 0
-      snap: 0
-      invert: 0
-      type: 0
-      axis: 0
-      joystick: 0
     - name: Notebook
       description: Notebook
       positive: 120
@@ -208,7 +194,7 @@ MonoBehaviour:
       type: 0
       axis: 0
       joystick: 0
-    isExpanded: 0
+    isExpanded: 1
   _playerOneDefault: Default
   _playerTwoDefault: 
   _playerThreeDefault: 
